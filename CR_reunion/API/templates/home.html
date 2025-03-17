@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center py-5">
+            <h1 class="display-4 font-weight-bold text-white">Bienvenue chez Vocalis</h1>
+            <p class="lead text-white">Simulez des entretiens d'embauche avec nos chatbots, écrits ou vocaux. Préparez-vous à réussir !</p>
+            <a href="{% url 'chatbot_e' %}" class="btn btn-lg mt-3" style="background-color: #15eda2; color: white;">Commencer avec le chatbot écrit</a>
+            <a href="{% url 'chatbot_v' %}" class="btn btn-outline-light btn-lg mt-3 ml-2">Commencer avec le chatbot vocal</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 font-weight-bold" style="color: #4a979e;">Pourquoi choisir Vocalis ?</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3" style="font-size: 3rem; color: #15eda2;">🎤</div>
+                            <h4 class="card-title font-weight-bold" style="color: #1c7c85;">Chatbot Vocal</h4>
+                            <p class="card-text">Un assistant vocal interactif pour simuler des scénarios réalistes.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3" style="font-size: 3rem; color: #15eda2;">💻</div>
+                            <h4 class="card-title font-weight-bold" style="color: #1c7c85;">Chatbot Écrit</h4>
+                            <p class="card-text">Un chatbot écrit intuitif pour des préparations rapides et efficaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <div class="card-body text-center">
+                            <div class="icon mb-3" style="font-size: 3rem; color: #15eda2;">📈</div>
+                            <h4 class="card-title font-weight-bold" style="color: #1c7c85;">Amélioration Continue</h4>
+                            <p class="card-text">Recevez des suggestions pour améliorer vos réponses et progresser.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

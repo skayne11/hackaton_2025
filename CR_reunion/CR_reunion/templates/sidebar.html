@@ -1,0 +1,10 @@
+<nav class="mr-3" style="background-color: #1c7c85; width: 100%; height: 100%;">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/chatbot/ecrit/' %}active{% endif %}" href="{% url 'chatbot_e' %}">Chat ecrit</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/chatbot/vocal/' %}active{% endif %}" href="{% url 'chatbot_v' %}">Chat vocal</a>
+        </li>
+    </ul>
+</nav>
