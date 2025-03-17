@@ -5,20 +5,12 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from chatbot.chatbot_model import ChatBot
+from django.conf import settings
+
 
 logger = logging.getLogger(__name__)
-api_key = "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"  # Remplacez par votre clé API
 
-chatbot = ChatBot(api_key)
-
-def home(request):
-    return render(request, 'home.html')
-
-def chat_page_ecrit(request):
-    return render(request, 'chat_ecrit.html')
-
-def chat_page_vocal(request):
-    return render(request, 'chat_vocal.html')
+chatbot = ChatBot(settings.OPENAI_API_KEY)
 
 @csrf_exempt
 def chat_response(request):
@@ -40,3 +32,26 @@ def chat_response(request):
             return JsonResponse({'error': str(e)}, status=500)
     return JsonResponse({'error': 'Méthode de requête invalide'}, status=400)
 
+@csrf_exempt
+def upload_txt_file(request):
+    if request.method == 'POST':
+        try:
+            if 'file' not in request.FILES:
+                return JsonResponse({'error': 'Aucun fichier envoyé'}, status=400)
+            
+            file = request.FILES['file']
+            if not file.name.endswith('.txt'):
+                return JsonResponse({'error': 'Format de fichier non supporté. Veuillez envoyer un fichier .txt'}, status=400)
+            
+            # Lire le contenu du fichier
+            file_content = file.read().decode('utf-8')
+            
+            # Générer le compte rendu avec le chatbot
+            summary = chatbot.generate_summary(file_content)
+
+            return JsonResponse({'summary': summary})
+        except Exception as e:
+            logger.error(f"Erreur lors du résumé du fichier : {e}")
+            return JsonResponse({'error': f'Erreur serveur : {str(e)}'}, status=500)
+    
+    return JsonResponse({'error': 'Méthode de requête invalide'}, status=400)

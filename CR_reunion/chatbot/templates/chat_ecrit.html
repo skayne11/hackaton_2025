@@ -52,7 +52,7 @@ const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute
         inputElement.value = '';
     
         try {
-            const response = await fetch('/chatbot/chat/', {
+            const response = await fetch('/API/chat/', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',

@@ -6,5 +6,8 @@
         <li class="nav-item">
             <a class="nav-link {% if request.path == '/chatbot/vocal/' %}active{% endif %}" href="{% url 'chatbot_v' %}">Chat vocal</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/chatbot/file/' %}active{% endif %}" href="{% url 'file' %}">File</a>
+        </li>
     </ul>
 </nav>

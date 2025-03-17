@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="row" style="height: auto; width: auto;">
+    <div style="width: 20%;" class="mr-3">
+        {% include 'sidebar.html' %}
+    </div>
+    <div class="main-content ml-3" style="width: 75%;">
+        <div id="text-chat-tab" class="tab-content">
+            <h1 class="mt-3" style="color: #000000;">Compte rendu par fichier</h1>
+
+            <!-- Chatbox pour afficher les messages et le résumé -->
+            <div id="chatbox" class="border p-3 mb-3" style="height: 300px; overflow-y: auto; background: #ffffff;"></div>
+
+            <!-- Formulaire d'upload de fichier -->
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="file" id="file-input" class="form-control" accept=".txt">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="button" onclick="uploadFile()">Envoyer le fichier</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Récupérer le token CSRF
+    const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    async function uploadFile() {
+        const fileInput = document.getElementById('file-input');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert("❌ Veuillez sélectionner un fichier .txt !");
+            return;
+        }
+
+        // Vérifier l'extension du fichier
+        if (!file.name.endsWith('.txt')) {
+            alert("❌ Seuls les fichiers .txt sont acceptés !");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            // Ajouter un message temporaire à l'interface utilisateur
+            const messagesElement = document.getElementById('chatbox');
+            const userMessageElement = document.createElement('div');
+            userMessageElement.className = 'alert alert-primary mt-2';
+            userMessageElement.innerText = "📂 Fichier envoyé : " + file.name;
+            messagesElement.appendChild(userMessageElement);
+
+            // Envoyer le fichier à l'API Django
+            const response = await fetch('/API/upload_file/', {
+                method: 'POST',
+                headers: { 'X-CSRFToken': csrftoken },
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.summary) {
+                    // Afficher le résumé généré
+                    const botMessageElement = document.createElement('div');
+                    botMessageElement.className = 'alert alert-secondary mt-2';
+                    botMessageElement.innerText = "📝 Résumé généré : \n\n" + data.summary;
+                    messagesElement.appendChild(botMessageElement);
+                } else {
+                    alert("❌ Erreur : Aucun résumé reçu.");
+                }
+            } else {
+                alert("❌ Erreur lors de l'envoi du fichier.");
+            }
+        } catch (error) {
+            console.error("Erreur :", error);
+            alert("❌ Une erreur est survenue.");
+        }
+    }
+</script>
+
+{% endblock %}
