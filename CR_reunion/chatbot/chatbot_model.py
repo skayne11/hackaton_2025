@@ -27,9 +27,14 @@ class ChatBot:
         """
         Générer un résumé à partir du texte du fichier
         """
+
+        prompt = """
+                Tu es un assistant qui génère des comptes rendus détaillés à partir du texte donné.
+                Je veux que le compte rendu soit simple et facile de compréhension.
+        """
         try:
             conversation_history = [
-                {"role": "system", "content": "Tu es un assistant qui génère des comptes rendus détaillés à partir du texte donné."},
+                {"role": "system", "content": prompt},
                 {"role": "user", "content": file_content}
             ]
             completion = self.client.chat.completions.create(
