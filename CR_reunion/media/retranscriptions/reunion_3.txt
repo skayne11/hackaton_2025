@@ -1,0 +1,39 @@
+📅 Date : 20 mars 2025
+🕒 Heure : 10h00
+👥 Participants :
+
+M. Dupont – Client
+Mme Leroy – Responsable de projet
+M. Bernard – Développeur
+Mme Martin – Chargée de relation client
+Début de la réunion
+🔹 Mme Leroy : Bonjour M. Dupont, merci d’être avec nous aujourd’hui. Nous allons faire le point sur l’avancement de votre projet. Avant de commencer, avez-vous des points spécifiques à aborder ?
+
+🔹 M. Dupont : Bonjour à tous, merci pour votre temps. Oui, j’aimerais revoir les délais et avoir un aperçu des dernières fonctionnalités développées.
+
+Point sur l’avancement du projet
+🔹 Mme Leroy : Bien sûr. Depuis notre dernière réunion, nous avons finalisé l’intégration du module de paiement en ligne et l’amélioration de l’interface utilisateur. M. Bernard, pouvez-vous présenter ces avancées ?
+
+🔹 M. Bernard : Tout à fait. Nous avons ajouté une nouvelle page de gestion des paiements, qui permet à vos clients de suivre leurs transactions en temps réel. De plus, nous avons optimisé le chargement des pages pour améliorer la fluidité de navigation.
+
+🔹 M. Dupont : D’accord, cela me semble très bien. Est-il possible d’avoir une démonstration rapide ?
+
+🔹 Mme Leroy : Bien sûr, partageons notre écran.
+
+Discussion sur les prochaines étapes
+🔹 M. Dupont : Le projet avance bien, mais j’ai une question sur la mise en production. Avez-vous un planning précis ?
+
+🔹 Mme Leroy : Nous avons prévu une phase de test la semaine prochaine, et si tout se passe bien, la mise en production aura lieu dans 10 jours.
+
+🔹 M. Dupont : Parfait. J’aimerais aussi ajouter une fonctionnalité permettant aux utilisateurs de recevoir des notifications par e-mail.
+
+🔹 Mme Martin : C’est une excellente idée. Nous allons analyser cela et vous fournir un devis supplémentaire.
+
+🔹 M. Dupont : D’accord, envoyez-moi une estimation d’ici la fin de la semaine.
+
+Conclusion
+🔹 Mme Leroy : Merci à tous pour cette réunion. Nous vous enverrons un compte rendu avec les actions à suivre.
+
+🔹 M. Dupont : Merci, j’attends votre retour. Bonne journée à tous !
+
+🔹 Tous : Bonne journée !

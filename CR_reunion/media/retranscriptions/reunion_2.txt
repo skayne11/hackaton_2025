@@ -1,0 +1,26 @@
+Client A : Bonjour, merci d'avoir pris le temps de nous rencontrer aujourd'hui. J'aimerais commencer par évoquer nos attentes concernant la collaboration sur le projet.
+
+Client B : Bonjour, merci à vous. Pour ma part, nous souhaitons nous assurer que le produit final sera entièrement personnalisable et répondra aux besoins spécifiques de notre marché.
+
+Client A : Tout à fait. Nous avons identifié plusieurs fonctionnalités clés, notamment une interface utilisateur intuitive et des options de personnalisation avancées. Est-ce que vous seriez d'accord pour que nous présentions une maquette lors de notre prochain rendez-vous ?
+
+Client B : Oui, c'est une excellente idée. J'aimerais également savoir comment vous envisagez le calendrier du projet. Nous avons quelques contraintes de délai pour le lancement.
+
+Client A : Nous proposons un planning en trois phases :
+
+Phase de conception – Rassembler vos besoins et valider le cahier des charges.
+Phase de développement – Création des fonctionnalités et intégration des retours.
+Phase de test et déploiement – Tests finaux et formation de vos équipes.
+Client B : Cela semble structuré. Pour la phase de conception, nous aimerions organiser quelques ateliers afin de bien définir les spécifications techniques. Pensez-vous que nous pourrions prévoir cela la semaine prochaine ?
+
+Client A : Absolument. Nous pouvons organiser un atelier collaboratif afin de recueillir toutes vos attentes. Cela permettra aussi d'identifier les éventuelles contraintes techniques dès le départ.
+
+Client B : Parfait. Aussi, concernant le budget, avez-vous déjà une estimation préliminaire que vous pourriez partager ?
+
+Client A : Oui, nous avons effectué une première estimation basée sur des projets similaires. Nous présenterons un devis détaillé lors de la prochaine réunion, après avoir clarifié tous les points lors des ateliers.
+
+Client B : Très bien, cela nous permettra d'avancer de manière claire et transparente. J'attends donc la confirmation de la date pour l'atelier.
+
+Client A : Nous vous ferons un retour d'ici la fin de la journée pour fixer une date. Merci pour votre confiance et votre collaboration.
+
+Client B : Merci à vous. J'ai hâte de voir comment nous pourrons concrétiser ce projet ensemble.

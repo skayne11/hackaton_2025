@@ -1,0 +1,29 @@
+Contexte : Réunion hebdomadaire d'une équipe de projet en entreprise.
+
+Animateur (Responsable de l'équipe) : Bonjour à tous ! Merci d’être présents pour notre réunion hebdomadaire. Avant de commencer, faisons un rapide tour de table pour voir où nous en sommes.
+
+Marie (Cheffe de projet) : Bonjour, de mon côté, nous avons bien avancé sur l’analyse des besoins clients. Nous avons terminé la phase d’étude et nous préparons maintenant le cahier des charges.
+
+Paul (Développeur) : Bonjour, j’ai terminé l’implémentation de la nouvelle fonctionnalité et elle est prête pour les tests. J’attends le retour de l’équipe QA.
+
+Sophie (Responsable marketing) : Bonjour à tous, nous avons finalisé la stratégie de lancement et préparons une campagne sur les réseaux sociaux. Nous aurons besoin de validations d’ici la fin de la semaine.
+
+Animateur : Très bien ! Passons maintenant aux points principaux de l’ordre du jour. Tout d’abord, l’état d’avancement du projet. Marie, peux-tu nous donner plus de détails sur le cahier des charges ?
+
+Marie : Bien sûr. Nous avons recueilli tous les retours des clients et les avons intégrés. Nous espérons finaliser le document d’ici jeudi et le soumettre à validation vendredi.
+
+Animateur : Excellent. Paul, concernant les tests, as-tu un calendrier précis ?
+
+Paul : Oui, l’équipe QA commence aujourd’hui. Les premiers résultats devraient être disponibles d’ici mercredi. Si tout va bien, nous pourrons corriger les éventuels bugs d’ici la fin de semaine.
+
+Animateur : Parfait. Sophie, quelles sont les prochaines étapes pour la campagne marketing ?
+
+Sophie : Nous devons finaliser le visuel et les messages. Si tout est validé d’ici vendredi, nous pourrons lancer la campagne la semaine prochaine.
+
+Animateur : Très bien. Avant de conclure, y a-t-il d’autres points à aborder ?
+
+Jean (Finances) : Oui, un rapide point budgétaire. Nous devons veiller à ne pas dépasser les coûts prévus pour le développement et la communication.
+
+Animateur : Merci Jean. On veillera à bien suivre le budget. Si personne n’a d’autres remarques, je propose de clôturer la réunion. Merci à tous pour votre participation et à la semaine prochaine !
+
+Tous : Merci, à bientôt !
