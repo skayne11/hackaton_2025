@@ -2,6 +2,23 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+# class chatbot(models.Model):
+
+#     CHOICE_TYPE = [
+#         ('technique', 'Technique')
+#         ('commerciale', 'Commercial')
+#     ]
+
+#     CHOICE_TAILLE = [
+#         ('court', 'Court'),
+#         ('moyen', 'Moyen'),
+#         ('long', 'Long')
+#     ]
+
+#     type_resumer = models.CharField(max_length=20, choices=CHOICE_TYPE, default='technique')
+#     taille_resumer = models.CharField(max_length=10, choices=CHOICE_TAILLE)
+#     historique_reunion = models.CharField(max_length=100)
+
 # class Utilisateur(models.Model):
 
 #     choices=[

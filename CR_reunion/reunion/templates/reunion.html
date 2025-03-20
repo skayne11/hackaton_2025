@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<div class="container mt-5">
+    <h2 class="text-white">Liste des Réunions</h2>
+    <div class="accordion mt-4" id="reunionAccordion">
+        {% for reunion in reunions %}
+        <div class="card">
+            <div class="card-header" id="heading{{ reunion.id }}" style="background-color: #4a979e;">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapse{{ reunion.id }}" aria-expanded="true" aria-controls="collapse{{ reunion.id }}">
+                        {{ reunion.titre }} - {{ reunion.date }}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{ reunion.id }}" class="collapse" aria-labelledby="heading{{ reunion.id }}" data-parent="#reunionAccordion" style="background-color: #55adb6;">
+                <div class="card-body">
+                    <strong>Participants:</strong> {{ reunion.participants }} <br>
+
+                    {% if reunion.fichier_retranscription %}
+                        <p><a href="{{ reunion.fichier_retranscription.url }}" download>📥 Télécharger la retranscription (.txt)</a></p>
+                        <button class="btn btn-primary mt-2" onclick="generateSummary({{ reunion.id }}, '{{ reunion.fichier_retranscription.url }}')">📝 Créer un compte rendu</button>
+                    {% else %}
+                        <p>Aucune retranscription disponible.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-white">Aucune réunion trouvée.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Zone d'affichage du compte rendu -->
+    <div class="mt-5">
+        <h3 class="text-white">Compte rendu généré</h3>
+        <div id="summary-box" class="border p-3 text-white bg-dark" style="height: auto; min-height: 100px;"></div>
+    </div>
+</div>
+
+<script>
+    const csrftoken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    async function generateSummary(reunionId, fileUrl) {
+        const summaryBox = document.getElementById('summary-box');
+        summaryBox.innerHTML = "⏳ Génération du compte rendu en cours...";
+
+        try {
+            const response = await fetch('/API/generate_summary/', {
+                method: 'POST',
+                headers: { 
+                    'X-CSRFToken': csrftoken,
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify({ 
+                    reunion_id: reunionId,
+                    file_url: fileUrl 
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.summary) {
+                    summaryBox.innerHTML = `<strong>Compte rendu :</strong><br> ${data.summary}`;
+                } else {
+                    summaryBox.innerHTML = "❌ Erreur : Aucun compte rendu généré.";
+                }
+            } else {
+                summaryBox.innerHTML = "❌ Erreur lors de la génération du compte rendu.";
+            }
+        } catch (error) {
+            console.error("Erreur :", error);
+            summaryBox.innerHTML = "❌ Une erreur est survenue.";
+        }
+    }
+</script>
+
+{% endblock %}

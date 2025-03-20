@@ -6,7 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from chatbot.chatbot_model import ChatBot
 from django.conf import settings
-
+import os
+import urllib.parse
 
 logger = logging.getLogger(__name__)
 
@@ -55,3 +56,40 @@ def upload_txt_file(request):
             return JsonResponse({'error': f'Erreur serveur : {str(e)}'}, status=500)
     
     return JsonResponse({'error': 'Méthode de requête invalide'}, status=400)
+
+@csrf_exempt
+def generate_summary(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            file_url = data.get('file_url')
+
+            if not file_url:
+                return JsonResponse({'error': 'Aucun fichier fourni'}, status=400)
+
+            # ✅ Décode l'URL pour éviter les erreurs d'encodage
+            file_url = urllib.parse.unquote(file_url)
+            print(f"Fichier reçu (décodé) : {file_url}")
+
+            # ✅ Convertir en chemin local
+            file_path = os.path.join("media", file_url.split("/media/")[-1])
+
+            # ✅ Vérifier si le fichier existe
+            if not os.path.exists(file_path):
+                print(f"Fichier introuvable : {file_path}")
+                return JsonResponse({'error': 'Fichier non trouvé'}, status=404)
+
+            # ✅ Lire le fichier
+            with open(file_path, 'r', encoding='utf-8') as file:
+                text = file.read()
+
+            # ✅ Générer un résumé (extrait de 500 caractères max)
+            summary = text[:500] + "..." if len(text) > 500 else text
+
+            return JsonResponse({'summary': summary})
+        
+        except Exception as e:
+            print(f"Erreur interne : {e}")
+            return JsonResponse({'error': str(e)}, status=500)
+
+    return JsonResponse({'error': 'Méthode non autorisée'}, status=405)

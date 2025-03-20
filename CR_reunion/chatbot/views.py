@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .chatbot_model import ChatBot
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -19,5 +20,3 @@ def chat_page_vocal(request):
 
 def chat_page_file(request):
     return render(request, 'file_to_CR.html')
-
-
